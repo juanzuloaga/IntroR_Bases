@@ -10,11 +10,18 @@ output:
       collapsed: true
     code_folding: show
 ---
-<center><h2><span style="color:#3399FF">Ecodiversa </span> <span style="color:green">Tropical</span></h2> </center>
+
+Este taller ha sido desarrollado por:
+
+- <a href="https://www.edslab.org/" target="_blank">**Prof. Melissa Guzmán**</a> (University of Southern California).
+
+- Juan Zuloaga director de ( <a href="https://www.ecodiversatropical.com/" target="_blank">Ecodiversa Tropical</a>).
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "C:/Talleres_Ecodiversa_R/IntroR_Bases/")
+knitr::opts_knit$set(root.dir = "C:/Talleres_R/IntroR_Bases/")
 ```
 ___
 
@@ -25,7 +32,7 @@ Al final de este taller usted podrá saber cómo:
 - Usar R como calculadora
 - Identificar y usar varios tipos de datos (ej: numéricos, caracteres)
 - Crear un objeto y asignar valores al objeto
-- Identificar y crear estructuras de datos (ej: vectores, data frames, listas y matrices)
+- Identificar y crear estructuras de datos (ej: vectores, hoja de datos (o data frames en inglés), listas y matrices)
 - Aplicar funciones básicas matemáticas y estadísticas
 - Enteder qué son funciones y paquetes en R
 - Saber utilizar las ayudas en R
@@ -41,11 +48,40 @@ Al final de este taller usted podrá saber cómo:
 
 <a href="https://en.wikipedia.org/wiki/RStudio" target="_blank">RStudio</a> es un <a href="https://es.wikipedia.org/wiki/Entorno_de_desarrollo_integrado" target="_blank">Entorno de Desarrollo Integrado</a>  (Integrated Development Environment, IDE en inglés) que permite la integración de herramientes diseñadas para ser más productivos e interactivos en R.
 
+Es decir que RStudio le permite al usuario, no solamnete interactuar y ver los códigos en R (que es el lenguaje de programación), sino tambien visualizar gráficas, tablas, archivos, mensajes y ayudas para facilitar el proceso de programación.
+
 R y RStudio son softwares de libre acceso (Open source) que puede ejecutar desde varias plataformas como: Windows, Mac y Linux.
 
+## Instalar R
 
-Por favor cargue <a href="https://cran.r-project.org" target="_blank">R</a> y <a href="https://rstudio.com/products/rstudio/download/" target="_blank">RStudio</a> en su computador. Si tiene Windows usted necesitará instalar <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">Rtools</a>. Si usted tiene Mac, necesita instalar también Xtools del app store. 
+**Para installar R**:
 
+- Vaya a <a href="https://cran.r-project.org" target="_blank">CRAN</a> (CRAN = The Comprehensive R Archive Network). 
+
+- Seleccione "Download R for Windows" or Download R for macOS, dependiendo de su computador.
+
+- Seleccione el link "install R for the first time", que le permitirá bajar el archivo ejecutable de R (.exe).
+
+- Corra (Run) el archivo R ejecutable (.exe) para empezar la instalación y permita que la aplicación haga cambios en su computador.
+
+- Seleccione el lenguaje de instalación.
+
+- Seleccione "Finish" para salir de la configuración de instalación.
+
+
+**Para instalar RStudio**:
+
+- Vaya a la página web de <a href="https://posit.co/" target="_blank">RStudio</a>
+
+- Seleccione el link "Download RStudio" en la esquina superior derecha.
+
+- Seleccione "DOWNLOAD RSTUDIO" bajo el  "RStudio Desktop" (usted puede ver que es FREE)
+
+- Seleccione "DOWNLOAD RSTUDIO DESKTOP FOR WINDOWS" bajo 2: Install RStudio
+
+- Corra (Run) el archivo RStudio ejecutable (.exe) para empezar la instalación y permita que la aplicación haga cambios en su computador.
+
+- Seleccione "Finish" para salir de la configuración de instalación.
 
 
 ## Explorando RStudio
@@ -62,7 +98,7 @@ Usted verá cuatro paneles como se muestran en la figura. Los paneles ofrecen un
 
 Usted se familiarzará y conocerá la utilidad de cada de estos paneles a medida que avanza en estos tutoriales.
 
-![](./figures_workshop/pantalla.png){width=120% height="120%"}
+![](./figures_workshop/pantalla.png){width=110% height="1500%"}
 
 
 
@@ -332,7 +368,7 @@ Después sume los dos objetos d + e
 
 ¿Qué obtiene? y ¿Por qué?
 
-**Para pensar** son 7 y 8 tipo numérico o carácter?
+**Para pensar** son "8" y "9" tipo numérico o caracter?
 
 
 </div>
@@ -350,7 +386,7 @@ A continuación presentaremos los tipos de datos más comunes que se manejan en 
 + `numeric` (en inglés) "numérico", para valores numéricos 
 + `character` or `string` (en inglés) "caracteres", para texto que incluye letras y otros símbolos 
 + `logical` o `Boolean` (en inglés) "lógicos", VERDADERO/FALSO (`TRUE`/`FALSE` en inglés)
-+ `factor`  en inglés) "factores", para variables categóricas
++ `factor`  (en inglés) "factores", para variables categóricas
 + `missing values` (`NA`, "Not Available”. en inglés) para valores que no se encuentran disponibles.
 
 Veamos unos ejemplos:
@@ -376,7 +412,7 @@ class(a)
 Veamos otro ejemplo:
 
 
-con la función `typeof()` usted puede ver el modo del valor numérico. Hay dos tipos en el modo numérico.: `double` e `integer`.
+con la función `typeof()` usted puede ver el modo del valor numérico. Hay dos tipos en el modo numérico.: `integer` (como un numero entero) y `double` (como decimales).
 
 ```{r}
 
@@ -720,9 +756,9 @@ str(df)
 
 ```{r}
 
-mi_matrix2
+my_matrix
 
-str(mi_matrix2)
+str(my_matrix)
 ```
 
 </div>
@@ -730,7 +766,7 @@ str(mi_matrix2)
 
 ## Lista `list`
 
-La lista es un vector que contiene varios objetos, usted podra diferneciarlos por que estan entre dos parentesis cuadrados, es decir [[1]], [[2]], [[3]], en el ejemplo de abajo:
+La lista es un vector que contiene varios objetos, usted podra diferenciarlos porque están entre dos paréntesis cuadrados, es decir [[1]], [[2]], [[3]], en el ejemplo de abajo:
 
 
 ```{r}
@@ -856,7 +892,7 @@ sin(10/2)
 
 Recuerde entonces que usted puede escribir el nombre de la función seguido de parentesis redondo `()`.
 
-Tenge en cuenta que todos los nombres de las funciones vienen en inlgés.  Usted se familiarizará con los nombres a medida que las utilice.
+Tenge en cuenta que todos los nombres de las funciones vienen en inglés.  Usted se familiarizará con los nombres de las funciones a medida que las utilice.
 
 Además, existe en R una ayuda cuando usted trata de encontralas:
 
@@ -925,7 +961,7 @@ Intente este codigo.  ¿Qué sucede?
 <p align="center">Practique, practique, practique!!</p>
 
 
-<p align="center">Obtendrá muchos mensajes con: <span style="color:red">**Error**</span> No se precoupe!</p>
+<p align="center">Obtendrá muchos mensajes con: <span style="color:red">**Error**. </span> No se precoupe!</p>
 
 
 <p align="center">Si no enntiende trate de nuevo y/o busque soluciones en el internet!  Mucha gente ha pasado por los mismos problemas</p>
@@ -1021,7 +1057,7 @@ Estos paquetes los verá en detalle en el "Taller de Manejo de datos".
 Ahora veamos cómo puede instalar los paquetes en su computador y luego cargarlos en su sesión de RStudio.
 
 
-## Cómo Instalar paquetes
+## Cómo Instalar paquetes?
 
 
 Para instalar un paquete, por ejemplo `ggplot2`, usted puede utilizar el menu Tools >> Install Packages.
@@ -1049,20 +1085,28 @@ Una vez tiene sus paquetes instalados en su computador tiene que cargar el paque
 
 + `library(ggplot2)`, y luego ejecute esta línea.
 
+```{r}
+library(ggplot2)
+```
+
+
 Una vez hecho todo esto, tendrá disponible el paquete en su sesión de RStudio. 
 
 Recuerde que la instalación la hace una sola vez, a no ser que quiera actualizar la versión del paquete.
 
-Ahora bien, el paquete lo debe cargar cada vez que abre una sesión.
+Ahora bien, el paquete lo debe cargar (utilizando la función`library()`)cada vez que abre una sesión.
 
-Puede ver la información relacionada con su sesión con esta función `sessionInfo()`.
+Puede ver la información relacionada con su sesión con esta función `sessionInfo()`. Por ejemplo en este taller tenemos esta información que usted vera es muy útil (por ejemplo la versión de los paquetes que está utilizando).
 
+```{r}
+sessionInfo()
+```
 
 
 # 11. Ayudas disponibles
 
 
-Aprender a escribir códigos que realicen las tareas que usted quiere es un proceso que requiere mucha práctica., especialmente cuando uste está empezando.
+Aprender a escribir códigos que realicen las tareas que usted quiere es un proceso que requiere mucha práctica, especialmente cuando usted está empezando.
 
 Es un proceso de ensayo y error. Los errores le ensenarán mucho a crecer en este proceso. Practique mucho!
 
@@ -1074,11 +1118,11 @@ El primero es el panel de ayuda.
 
 Puede digitar lo que necesita saber, por ejemplo algo sobre el paquete `ggplot2`:
 
-![](./figures_workshop/help.png){width=70% height="100%"}
+![](./figures_workshop/help.png){width=90% height="150%"}
 
 Lo que le ofrecerá algunos vínculos de utilidad.
 
-![](./figures_workshop/help2.png){width=70% height="100%"}
+![](./figures_workshop/help2.png){width=90% height="150%"}
 
 Pero tambien puede utilizar la función `help()` para buscar información sobre una función, por ejemplo `mean()`:
 
@@ -1086,7 +1130,7 @@ Pero tambien puede utilizar la función `help()` para buscar información sobre 
 
 Usted obtendrá en la ayuda información de como usar la función.  La sección de ejemplos le puede dar claves para saber cómo escribir sus códigos.  
 
-![](./figures_workshop/help4.png){width=100% height="100%"}
+![](./figures_workshop/help4.png){width=100% height="200%"}
 
  
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
@@ -1170,6 +1214,15 @@ También se encuentran una serie de libros y tutoriales que son de gran utilidad
 + <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">RStudio Cheatsheets</a>
 
 <br>
+
+# 12. Siguiente paso
+
+Esperamos que este tutorial le haya sido de ayuda para empezar a enterder cómo funciona R y RStudio, así como el potencial que tiene para sus futuros proyectos.
+
+Practique bastante y proceda con otros tutoriales que ofrecemos.
+
+
+Si tiene comentarios o sugerencias nos puede escribir a ecodiversatropical@gmail.com.
 
 <div align="center">###########################################################################</div>
 
