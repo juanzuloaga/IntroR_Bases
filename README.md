@@ -1,6 +1,6 @@
 # Introducción a R: conceptos básicos
 
-Al final de este [Taller básico en R](https://juanzuloaga.github.io/IntroR_Cargar/IntroR_Cargar.html) usted podrá saber cómo:
+Al final de este [Taller básico en R](https://juanzuloaga.github.io/IntroR_Bases/IntroR_Bases.html) usted podrá saber cómo:
 
 - Usar R como calculadora
 - Identificar y usar varios tipos de datos (ej: numéricos, caracteres)
